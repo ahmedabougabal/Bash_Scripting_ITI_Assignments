@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#* first method using source
+# source ./s1
+
+#* second method by catching it in var
+
+var=$(./s1)
+
+echo $var

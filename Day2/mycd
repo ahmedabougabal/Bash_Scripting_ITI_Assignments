@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "where u wanna go?"
+read input
+
+if [ -d "$input" ]; then
+  cd "$input"
+
+else
+  echo "this is not a valid destination"
+fi
+
+if [ "$input" -eq 0 ]; then
+  cd $HOME
+  echo "changed home"
+fi

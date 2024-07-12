@@ -1,0 +1,2 @@
+welcome
+end, max is user,,,:/var/lib/sss:/usr/sbin/nologin

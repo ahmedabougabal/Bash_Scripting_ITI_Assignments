@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# 5. Create a script called myls where:
+# a. It lists the current directory, if it is called
+#  without arguments.
+# b. Otherwise, it lists the given directory.
+
+# echo "enter a valid input "
+# read input
+
+# if [ "$input" -eq 0 ]; then
+#   ls pwd
+# fi
+
+# else
+# ls input
+
+# 6. Enhance the above script to support the following options individually:
+# a. -l: list in long format
+# b. -a: list all entries including the hiding files.
+# c. -d: if an argument is a directory, list only its name
+# d. -i: print inode number
+# e. -R: recursively list subdirectories
+
+if [ $# -eq 0 ]; then
+  ls
+elif [[ "$1" =~ [aldR] ]]; then
+  ls $*
+else
+  echo "invalid input"
+fi

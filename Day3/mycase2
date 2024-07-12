@@ -1,0 +1,36 @@
+#!/bin/bash
+
+shopt -s extglob
+
+# 2. Enhanced the previous script, by checking the type of string entered by a user:
+# a. Upper Cases.
+# b. Lower Cases.
+# c. Numbers.
+# d. Mix.
+# e. Nothing.
+
+read -p "Please Enter Your string: " string
+
+case $string in
+
+[Ee][Xx][iI][tT])
+  exit 0
+  ;;
+
++([A-Z]) | " ")
+  echo "uppercase"
+  ;;
++([a-z]) | " ")
+  echo "lowercase"
+  ;;
++([a-zA-Z]))
+  echo “mixed characters”
+  ;;
++([0-9]))
+  echo numbers
+  ;;
+
+*)
+  echo nothing
+  ;;
+esac

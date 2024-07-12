@@ -1,0 +1,336 @@
+#! /usr/bin/bash
+
+shopt -s extglob
+export LC_COLLATE=C
+
+<<COMMENT
+
+-----case syntax-----
+case $variable in
+firstcase)
+	echo first case
+	;;
+secondcase)
+	echo second case
+	;;
+*)
+	echo default
+	;;
+esac
+
+
+read -p "Enter your Name: " name
+
+case $name in
+"mahmoud")
+	echo hello boss
+	;;
+"ahmed")
+	echo hello manger
+	;;
+*)
+	echo user
+	;;
+esac
+
+
+?(pattern)--> match one or zero occurrence of the pattern
+*(pattern)--> match zero or more occurrence of the pattern
+@(pattern)--> match exactly one occurrence of the pattern
++(pattern)--> match one or more occurrence of the pattern
+!(pattern)--> match all strings except pattern
+
+
+
+
+
+read -p "Enter your Name: " name
+
+case $name in
++([a-z]||[[:space:]]))
+	echo small letters
+	;;
++([A-Z]))
+	echo capital letters
+	;;
++([0-9]))
+	echo numbers
+	;;
++([a-zA-Z]))
+	echo mixed characters
+	;;
++([a-zA-Z0-9]))
+	echo mixed numbers with characters
+	;;
+
+*)
+	echo invalid inputs
+	;;
+esac
+
+
+
+
+------LOOP------
+while condition
+do
+
+done
+
+
+
+num=0
+while [ $num -lt 10 ]
+do
+	echo $num
+#	((num++))
+
+	let num+=1
+done
+
+until condtion
+do
+
+done
+
+
+num=1
+
+until [ $num -gt 10 ]
+do
+echo $num
+let num=$num+1
+
+done
+
+
+for varible in list
+do
+
+
+done
+
+
+
+for name in ahmed mahmoud ismael
+do
+echo $name
+done
+
+
+
+
+
+
+while true
+do
+read -p "Enter your Name: " name
+case $name in
+[eE][xX][iI][tT])
+	break
+	;;
++([a-z]||[[:space:]]))
+	echo small letters
+	;;
++([A-Z]))
+	echo capital letters
+	;;
++([0-9]))
+	echo numbers
+	;;
++([a-zA-Z]))
+	echo mixed characters
+	;;
++([a-zA-Z0-9]))
+	echo mixed numbers with characters
+	;;
+
+*)
+	echo invalid inputs
+	;;
+esac
+
+done
+
+
+
+
+
+for i in {1..9..2}
+do
+echo -n $i " "
+
+done
+
+
+
+
+
+for i in ls $1
+do
+
+chmod u+x $1/$i
+
+done
+
+
+for i in ls $1/*
+do
+
+chmod u-x $i
+
+done
+
+
+for i in cat $1
+do
+
+echo $i
+
+done
+
+
+--------select syntax--------
+select variable in list
+do
+
+
+done 
+
+
+
+
+
+select var in ahmed mahmoud ismail exit
+do
+
+case $var in
+"exit")	
+	break
+	;;
+"ahmed")
+	echo hello ahmed
+	;;
+"mahmoud")
+	echo hello mahmoud
+	;;
+"ismail")
+	echo hello ismail
+	;;
+*)
+	echo UNKNOWN
+	;;
+
+esac
+
+done 
+
+
+PS3="ENTER NAME#? "
+select var in ahmed mahmoud ismail exit
+do
+
+case $REPLY in
+"exit")	
+	break
+	;;
+"ahmed")
+	echo hello ahmed
+	;;
+"mahmoud")
+	echo hello mahmoud
+	;;
+"ismail")
+	echo hello ismail
+	;;
+*)
+	echo UNKNOWN
+	;;
+
+esac
+
+done 
+
+
+read -p "Please Enter Array Size: " size
+declare -i sum=0
+for ((i=0;i<$size;i++))
+do
+
+read -p "Enter Array Element $i: " arr[$i]
+sum+=${arr[$i]}
+
+done
+
+
+
+echo The Array is: ${arr[@]}
+
+
+((avg=+$sum/$size))
+
+echo The Avg is: $avg
+
+
+
+
+# Functions 
+
+# Function without args and return
+
+function hello(){
+echo from function hello
+
+}
+hello # Function calling 
+
+hello2(){
+echo from function hello2
+
+}
+hello2 # Function calling 
+
+
+
+# Function With return
+
+# ---Method 1---
+
+
+MathFunc(){
+((sum=9+10))
+
+return $sum
+
+}
+MathFunc
+result=$(echo $?)
+echo $result
+
+
+# ---Method 2---
+MathFunc(){
+((sum=9+10))
+
+echo "hello mahmoud"
+echo $sum
+
+}
+result=$(MathFunc)
+echo After function
+echo $result
+
+# Function With Args
+
+
+hello2(){
+
+echo $@
+echo from function hello2
+
+}
+hello2 1 9 8
+
+
+
+COMMENT

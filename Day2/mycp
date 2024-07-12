@@ -1,0 +1,26 @@
+#!/bin/bash
+# Create a script called mycp where:
+# a. It copies a file to another
+# b. It copies multiple files to a directory
+
+echo "enter the source file names"
+
+read input
+
+echo "enter the target files"
+read target
+
+if [ "$#" -lt 1 ]; then
+  echo "enter at least 2 args, the one you wish to copy and the other"
+  exit 1
+fi
+
+if [ -d "$target" ]; then
+  cp "$input" "target"
+  echo "copy is done"
+fi
+
+if [ -f "$input" ]; then
+  cp "$input" "$target"
+  echo "copy is done"
+fi

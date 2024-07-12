@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+# Write a script called mymail using
+# for utility to send a mail to all users
+# in the system.
+# Note: write the mail body in a file
+# called mtemplate.
+
+mail_temp="/home/abougabal/ahmed_commands/Day3/mtemplate"
+
+if [[ ! -f "$mail_temp" ]]; then
+  echo mail temp file not found
+  exit 1
+fi
+
+wall <"$mail_temp"
+
+echo message has been sent to all users

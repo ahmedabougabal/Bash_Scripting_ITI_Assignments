@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# 5- Print line from 5 to 15 from /etc/passwd
+
+# awk '
+# BEGIN{print "welcome"; FS":" }
+# {
+#   if(NR >=5 && NR <=15){
+#     print $0
+#     }
+# }
+# END{print "exit"}' /etc/passwd
+
+# 6- Change lp to mylp
+
+# awk '
+# BEGIN{print "welcome"; FS":"}
+# {
+#   for( i =1 ; i <= NR; i++)
+#   {
+#     if($i == "lp"){
+#       $i="mylp";
+#     }
+#   }
+#   print NR " :  "$0;
+# }
+# END{print "end"}' /etc/passwd >file.txt
+
+# 7- Print all information about greatest uid.
+# userid is the 3rd col in the file
+# awk '
+# BEGIN{print "welcome"; FS":" ;max_UID=0}
+# {
+#   if($3 > max_UID){
+#     max_UID = $3;
+#   }
+# }
+# END{print "end, max_UID info is " max_UID }' /etc/passwd
+
+# 8- Get the sum of all accounts id’s.
+
+awk '
+BEGIN {print "welcome"; FS=":";sum=0 }
+
+{
+      sum+= $3;
+    
+}
+
+END{print "exit, sum is " sum }' /etc/passwd

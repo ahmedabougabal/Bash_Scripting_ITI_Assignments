@@ -1,0 +1,25 @@
+#! /usr/bin/bash
+# Write a script called chkmail to check
+# for new mails every 10 seconds.
+# Note: mails are
+# saved in /var/mail/username.
+
+user=$(pwd)
+
+path="/var/mail/$user"
+
+if [[ ! -f path ]]; then
+  echo "mail file $path for user $user is not found"
+  exit 1
+fi
+
+prev_mail_size= $(stat -c%s "$path")
+
+while true; do
+  current_mail_size = $(stat -c%s "$path")
+  if [[ $current_mail_size -eq $prev_mail_size ]]; then
+    echo "You have new mail!"
+    prev_mail_size=$current_mail_size
+  fi
+  sleep 10
+done

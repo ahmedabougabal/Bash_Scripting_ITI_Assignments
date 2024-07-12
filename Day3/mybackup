@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+# Write a script called mychmod using for utility to give execute permission to all files and
+# directories in your home directory.
+
+mydir=/home/abougabal/ahmed_commands/Day3/question4_assets
+backup_file="backedup_archive.tar"
+for file in "$mydir"/*; do
+  if [ -f "$file" ]; then
+    tar -rvf "$backup_file" "$file"
+    echo "backup is created from the files : $file"
+  fi
+done
